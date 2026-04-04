@@ -1,0 +1,20 @@
+---
+layout: default
+title: Blog
+---
+<h2>Selected Posts of analoge Photography</h2>
+
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <div>
+        <h2><a href="{{ post.url }}">{{ post.title }} - {{ post.date | date_to_string }}</a>
+        <img src="{{ post.template-image }}" class="image-preview" alt="{{ post.title }} image" >
+        </h2>
+        {{ post.excerpt }}
+        
+      </div>
+      
+    </li>
+  {% endfor %}
+</ul>

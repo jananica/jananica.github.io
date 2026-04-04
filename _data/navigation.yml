@@ -1,0 +1,10 @@
+- name: Home
+  link: /
+- name: Projects about public transit
+  link: /public-transit.html
+- name: Photography Blog
+  link: /photography.html
+- name: Other Projects
+  link: /other-projects.html
+- name: About
+  link: /about.html

@@ -1,0 +1,6 @@
+collections:
+  public-transit-projects:
+    output: true
+  other-projects:
+    output: true
+    permalink: /projects/:title/
