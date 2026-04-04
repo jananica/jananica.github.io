@@ -1,6 +1,7 @@
+
 h1 {
   color: #2C2C2C;
-  font-family: "Helvetica", sans-serif;
+  font-family: 'Helvetica', sans-serif;
   text-align: center;
   margin-top: 20px;
   font-weight: 300;
@@ -8,11 +9,12 @@ h1 {
 
 h2 {
   color: #2C2C2C;
-  font-family: "Helvetica", sans-serif;
+  font-family: 'Helvetica', sans-serif;
   text-align: left;
   margin-top: 16px;
   font-weight: 300;
 }
+
 
 .navigation {
   text-align: right;
@@ -21,16 +23,16 @@ h2 {
   padding: 10px;
   background-color: #f0f0f0;
   color: #2C2C2C;
-}
-.navigation a {
-  text-decoration: none;
-  color: inherit;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-family: sans-serif;
-}
-.navigation .current {
+  a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: sans-serif;
+  }
+  .current {
   color: #9C59D1;
+}
 }
 
 .image-preview {
@@ -45,5 +47,3 @@ h2 {
   margin: 20px 0;
   text-align: center;
 }
-
-/*# sourceMappingURL=styles.css.map */

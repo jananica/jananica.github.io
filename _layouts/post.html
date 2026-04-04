@@ -4,7 +4,7 @@ layout: default
 <h2>{{ page.title }}</h2>
 <p>posted on {{ page.date | date_to_string }} - by {{ page.author }}</p>
 <ul>
-    {% for image in site.data.blog.1 %}
+    {% for image in site.data.blog.vienna %}
         <div class="blog-images">
             <img src="{{image.link}}" width=400px>
             <p>{{image.date}}</p>
