@@ -1,5 +1,5 @@
 ---
 layout: default
 ---
-<h2>{{ page.title }} - last updated: {{ page.date | date_to_string }}</h2>
-{{ content }}
+<h2>{{ page.title }} - last updated: {{ page.last_modified_at | date_to_string }}</h2>
+<div class="helvetica">{{ content }}</div>

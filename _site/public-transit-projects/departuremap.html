@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Live map for Vienna's metro system</title>
-    <link rel="stylesheet" href="/assets/css/page.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
   </head>
   <body>
     <h1>Jana's Webpage</h1>
@@ -30,8 +30,9 @@
     </a>
   
 </nav>
-    <h2>Live map for Vienna's metro system - last updated: 04 Apr 2026</h2>
-<h3>How this project came to life</h3>
+    <div class="helvetica">
+      <h2>Live map for Vienna's metro system - last updated: 04 Apr 2026</h2>
+<div class="helvetica"><h3>How this project came to life</h3>
 <p>
     Sometime in July 2024 I stumbled upon an instagram post made by 'designrulesco' (link to the original post is <a href="https://www.instagram.com/reel/C9foI0USKJb/">here</a>). 
     In this post they advertise maps of metro-systems of cities in the USA, where the stations illuminate whenever a train is departing from them.
@@ -60,6 +61,7 @@ Given the fair-use principle of the API (request as little data as possible) and
 </ol>
 <p>Point 3 would be highly desirable if implemented efficiently and correctly, but I consider it to be too prone for 'bias' towards certain stations, giving insufficient data on the rest of the system. Combining Point 1, 4 and 6 was my first strategy, but complexity of handeling the data, in particular the incomplete picture one has in the case where only given departure data of one station for a single line at a time, made it susceptible for errors when matching older data to this new data. Hence for this version I settled with Point 5 additionally to the Points 1, 2 and 6. The current operating state of the metro is computed at the begining of the program. For this a set of stations is given by the value 'initial_meassure' in the file 'Config.ini'. These might need to be changed, if continuos service of any line is interrupted. The program requests departure data from all those stations at once, computing for each line the terminal stations most distant to the station meassured (these are called service intervals) as well as for each line a set of terminal stations (for both directions at a time). The departure data is then discarded, since it is not of use anymore and from the service intervals and terminal stations the to be meassured stations are then determined. A visualisation (printed to 'monitor.log') might look like this:
 </p>
-
+</div>
+    </div>
   </body>
 </html>

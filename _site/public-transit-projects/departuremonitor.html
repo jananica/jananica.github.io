@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Departure Monitor for Vienna's metro</title>
-    <link rel="stylesheet" href="/assets/css/page.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
   </head>
   <body>
     <h1>Jana's Webpage</h1>
@@ -30,11 +30,125 @@
     </a>
   
 </nav>
-    <h2>Departure Monitor for Vienna's metro - last updated: 04 Apr 2026</h2>
-<p>While working on a monitor displaying the Vienna metro system in real time (latest version here), I was asked by a friend of mine, if it would be possible to just track one part of a single line.</p>
+    <div class="helvetica">
+      <h2>Departure Monitor for Vienna's metro - last updated: 04 Apr 2026</h2>
+<div class="helvetica"><p>While working on a monitor displaying the Vienna metro system in real time I was asked by a friend of mine, if it would be possible to just track one part of a single line. 
+Some time has passed and I finally got the free time to work on that.
+The preliminary version is viewable on <a href="https://github.com/jananica/DepartureMonitorViennaPublicTransit"> GitHub</a>.</p>
+<h3 id="goal">Goal</h3>
+<p>Replicate the look of the monitors in Vienna’s metro and show live departure times.</p>
 
-<p>Some time has passed and I finally got the free time to work on that. 
-While the code is still in an early stage it is still viewable on <a href="https://github.com/jananica/DepartureMonitorViennaPublicTransit"> GitHub</a>.</p>
+<h3 id="project-structure">Project structure</h3>
 
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── <span class="kd">micropython_ssd1322</span>
+│   ├── <span class="kd">ssd1322</span>.py
+│   ├── <span class="kd">xgcl_font</span>.py
+│   └── <span class="kd">mono_palette</span>.py
+├── <span class="kd">lib</span>
+│   └── <span class="kd">requests</span>
+│   │   ├── __init__.mpy
+│   ├── <span class="kd">datetime</span>.mpy
+│   └── <span class="kd">urequests</span>.mpy
+├── <span class="kd">fonts</span>
+│   └── <span class="kd">default_font</span>.c
+├── <span class="kd">img</span>
+│   ├── <span class="kd">Gleis1</span>.mono
+│   ├── <span class="kd">Gleis2</span>.mono
+│   └── <span class="kd">Gleis3</span>.mono
+├── <span class="kd">boot</span>.py
+├── <span class="kd">Program</span>.py
+├── <span class="kd">DataConversion</span>.py
+└── <span class="kd">Monitors</span>.py
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">boot.py</code> starts the program by initializing the class <code class="language-plaintext highlighter-rouge">WienerLinienMonitor</code> in <code class="language-plaintext highlighter-rouge">Program.py</code>.</p>
+
+<h3 id="tools-used">Tools used</h3>
+<h4 id="board">Board</h4>
+<p>I wanted to use an Arduino board again. Hence I chose the <em>Arduino Nano ESP32</em>.
+It has builtin WI-FI capabilities and enough RAM to process the .json replies.
+Coding in MicroPython seemed like a natural choice and I resorted to the following tools from the Arduino community:</p>
+
+<ul>
+  <li>MicroPython Installer: to install MicroPython firmware on board</li>
+  <li>MicroPython-Package-Installer: to install required packages</li>
+  <li>Arduino Lab MicroPython: to connect to the board and test the program</li>
+</ul>
+
+<h4 id="display">Display</h4>
+<p>The display I settled for was a 256x64px yellow OLED 
+controlled by an SSD1322 driver.
+There was some sample code on the manufacturer’s site detailing the communication protocol with the displays.
+However I found the following <a href="https://github.com/rdagger/micropython-ssd1322/">micropython library</a>, which made the job much more easy.</p>
+
+<p>The displaying font (10x16 px) was created rather vibe-based to mimic in some sense the original font.
+It was created with the help of <a href="http://www.mikroe.com/"><strong>MikroElektronika GLCD Font Creator 1.2.0.0</strong></a>
+Note: I had to run the program in <em>Windows XP compatibility mode</em>, otherwise it wouldn’t let me save the progress.
+Exporting was fairly straightforward: ‘Export for GLCD’ -&gt; select ‘mikroC’ and save.</p>
+
+<p>The platform numbers on the side of the monitors are displayed as a monochrome image (size 35x64px).
+To convert the <code class="language-plaintext highlighter-rouge">.png</code> files into <code class="language-plaintext highlighter-rouge">.mono</code> with the right encoding, I used <a href="https://imagemagick.org/"><strong>ImageMagick</strong></a> with the following command:
+<code class="language-plaintext highlighter-rouge">batch
+magick Gleis1.png -monochrome Gleis1.mono
+</code></p>
+
+<h3 id="versatility">Versatility</h3>
+<p>While working on this project, I took into account numerous possibilities for adapting the design and functionality of the program.</p>
+<h4 id="in-programpy">in <code class="language-plaintext highlighter-rouge">Program.py</code>:</h4>
+<p>Displaying modes may be the most prominent of them. There exist two variables.</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">flag_show_platform_nr</code>: if true, the Platform number will be shown on one side of the display. Note: it also prevents the displaying algorithm from merging departures which are in the same direction, but from different platforms.</li>
+  <li><code class="language-plaintext highlighter-rouge">flag_show_line</code>: if true, the corresponding line will be printed before the destination of the departures.</li>
+</ul>
+
+<p>Note to this: not every monitor on the Metro does show either one.</p>
+
+<p>Any two combinations of the above can be preset and conviniently switched via the 10bit parallel input.
+<code class="language-plaintext highlighter-rouge">Platform_Sides</code> enhances the feature by the possibility to set the side the platform number should be displayed.</p>
+
+<p>Any (preferably 10x16px) X-GLCD font can be used instead of the default font.
+If needed, <code class="language-plaintext highlighter-rouge">display_text_spacing</code> can be increased.</p>
+
+<p>The constants <code class="language-plaintext highlighter-rouge">TIME_BETWEEN_API_REQUESTS</code> and <code class="language-plaintext highlighter-rouge">MIN_TIME_BETWEEN_API_REQUESTS</code> configure the waiting period between API requests. While lowering time between requests help with more up-to-date data, it also takes some time to fetch and convert.</p>
+
+<p>There is another feature, which switches from displaying the second and third departure, called <em>advanced preview</em>.
+<code class="language-plaintext highlighter-rouge">ADVANCED_PREVIEW_ANIMATION_PERIOD</code> controls the period (in seconds) between switching.</p>
+
+<p><code class="language-plaintext highlighter-rouge">UPDATE_PERIOD</code> then sets the time interval in which every monitor should be updated once. 
+Note: It should be at least 0.5*#(monitors), my meassured time for update of one monitor is ~300ms</p>
+
+<p>All monitors? Yes the number of monitors is not fixed, and can be any number &gt;= 1.</p>
+
+<p>And even the station the display shows can be set to be any station (doesn’t have to be metro) in Vienna. But we will get to that.
+Preprogrammed are all (currently 110) stations for the metro.
+The stations are first grouped into the line they serve.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LINES = ['U1','U2','U3','U4','U5','U6']
+Pin_in_selectLine = [5,6,7] #select line
+Pin_in_selectStation = [8,9,10,17,18] #select station
+Pin_in_selectAdvancedPreview = 21
+Pin_in_select_displaymode = 44
+</code></pre></div></div>
+
+<p>The connection to the displays is specified by the <code class="language-plaintext highlighter-rouge">SCK</code>-pin, one pin for <code class="language-plaintext highlighter-rouge">COPI</code> (Contoller Out, Peripheral In) and <code class="language-plaintext highlighter-rouge">CS</code>-, <code class="language-plaintext highlighter-rouge">DC</code>-, <code class="language-plaintext highlighter-rouge">RST</code>-pin for each display.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pin_SCK = 48
+Pin_COPI = 38
+Pins_CS = (1,2) #the i-th component refers to the i-th monitor
+Pins_DC = (4,12)
+Pins_RST = (3,11)
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">stop-id</code> (see <a href="https://www.wienerlinien.at/ogd_realtime/doku/">API documentation</a>) is one way to request data for one station with specified line and departure direction.
+The <code class="language-plaintext highlighter-rouge">stop-id</code>-values of each station is stored in <code class="language-plaintext highlighter-rouge">DataConversion.py</code>. This code can be replaced by any list of <code class="language-plaintext highlighter-rouge">stop-id</code>’s and thus any station can be displayed. As an example, the line U1 with it’s <code class="language-plaintext highlighter-rouge">stop-id</code>’s.
+I obtained the data from the <a href="https://www.wienerlinien.at/ogd_realtime/doku/">API documentation website</a>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#index 0,0 is Oberlaa -&gt;Leopoldau
+stop_IDs_U1 = [[4134,4133], [4135,4132], [4136,4131], [4137,4130], [4138,4129], [4101,4128], [4103,4126], 
+               [4105,4124], [4107,4122], [4109,4120], [4111,4118], [4113,4116], [4115,4114], [4117,4112], 
+               [4119,4110], [4121,4108], [4123,4106], [4125,4104], [4127,4102], [4181,4186], [4182,4187], 
+               [4183,4188], [4184,4189], [4185,4190]]
+</code></pre></div></div>
+
+</div>
+    </div>
   </body>
 </html>

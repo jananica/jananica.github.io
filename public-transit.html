@@ -8,7 +8,7 @@ title: Public Transit
   {% for project in site.public-transit-projects %}
     <li>
       <div>
-        <h2><a href="{{ project.url }}">{{ project.title }} - last updated: {{ project.date | date_to_string }}</a>
+        <h2><a href="{{ project.url }}">{{ project.title }} - last updated: {{ project.last_modified_at | date_to_string }}</a>
         <img src="{{ project.template-image }}" class="image-preview" alt="{{ project.title }} image" >
         </h2>
         {{ project.excerpt }}

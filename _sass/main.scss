@@ -3,7 +3,7 @@
 h1 {
   color: #2C2C2C;
   font-family: 'Helvetica', sans-serif;
-  text-align: center;
+  text-align: left;
   margin-top: 20px;
   font-weight: 300;
 }
@@ -47,4 +47,12 @@ h2 {
   height: auto;
   margin: 20px 0;
   text-align: center;
+}
+
+
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }

@@ -2,14 +2,16 @@
 layout: default
 ---
 <h2>{{ page.title }}</h2>
+<div class="helvetica">
 <p>posted on {{ page.date | date_to_string }} - by {{ page.author }}</p>
-<ul>
+
+
     {% for image in site.data.blog.vienna %}
-        <div class="blog-images">
-            <img src="{{image.link}}" width=400px>
-            <p>{{image.date}}</p>
+    
+        <div class="item">
+            <img src="{{image.link}}" style="min-width: 200px;max-width: 400px;"/>
+            <span class = "caption">{{image.date}}</span>
         </div>
     {% endfor %}
-    
-</ul>
-{{ content }}
+
+{{ content }}</div>

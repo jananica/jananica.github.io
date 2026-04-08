@@ -1,8 +1,7 @@
-
 h1 {
   color: #2C2C2C;
   font-family: 'Helvetica', sans-serif;
-  text-align: center;
+  text-align: left;
   margin-top: 20px;
   font-weight: 300;
 }
@@ -12,6 +11,14 @@ h2 {
   font-family: 'Helvetica', sans-serif;
   text-align: left;
   margin-top: 16px;
+  font-weight: 300;
+}
+
+h3 {
+  color: #2C2C2C;
+  font-family: 'Helvetica', sans-serif;
+  text-align: left;
+  margin-top: 12px;
   font-weight: 300;
 }
 
@@ -42,8 +49,8 @@ h2 {
 }
 
 .blog-images {
-  width: 400px;
-  height: auto;
-  margin: 20px 0;
-  text-align: center;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: dodgerblue;
+  padding: 10px;
 }

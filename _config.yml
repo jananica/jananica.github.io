@@ -4,3 +4,10 @@ collections:
   other-projects:
     output: true
     permalink: /projects/:title/
+
+plugins:
+  - jekyll-last-modified-at
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+

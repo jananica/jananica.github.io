@@ -1,9 +1,6 @@
----
----
-
 h1 {
   color: #2C2C2C;
-  font-family: 'Helvetica', sans-serif;
+  font-family: "Helvetica", sans-serif;
   text-align: left;
   margin-top: 20px;
   font-weight: 300;
@@ -11,7 +8,7 @@ h1 {
 
 h2 {
   color: #2C2C2C;
-  font-family: 'Helvetica', sans-serif;
+  font-family: "Helvetica", sans-serif;
   text-align: left;
   margin-top: 16px;
   font-weight: 300;
@@ -19,7 +16,7 @@ h2 {
 
 h3 {
   color: #2C2C2C;
-  font-family: 'Helvetica', sans-serif;
+  font-family: "Helvetica", sans-serif;
   text-align: left;
   margin-bottom: -4px;
   font-weight: 300;
@@ -27,7 +24,7 @@ h3 {
 
 h4 {
   color: #2C2C2C;
-  font-family: 'Helvetica', sans-serif;
+  font-family: "Helvetica", sans-serif;
   text-align: left;
   margin-bottom: -4px;
   font-weight: 300;
@@ -35,9 +32,8 @@ h4 {
 
 .helvetica {
   color: #2C2C2C;
-  font-family: 'Helvetica', sans-serif;
+  font-family: "Helvetica", sans-serif;
 }
-
 
 .navigation {
   text-align: right;
@@ -46,16 +42,16 @@ h4 {
   padding: 10px;
   background-color: #f0f0f0;
   color: #2C2C2C;
-  a {
-    text-decoration: none;
-    color: inherit;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-family: sans-serif;
-  }
-  .current {
+}
+.navigation a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: sans-serif;
+}
+.navigation .current {
   color: #9C59D1;
-  }
 }
 
 .image-preview {
@@ -80,6 +76,8 @@ div.item {
 }
 
 .caption {
-    /* Make the caption a block so it occupies its own line. */
-    display: block;
+  /* Make the caption a block so it occupies its own line. */
+  display: block;
 }
+
+/*# sourceMappingURL=styles.css.map */
