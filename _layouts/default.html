@@ -1,18 +1,28 @@
+
 <!doctype html>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <html>
   <head>
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
   </head>
+
   <body>
-    <h1>Jana's Webpage</h1>
-    
-    {% include navigation.html %}
-    
-    <div class="helvetica">
-      {{ content }}
+    <div class="grid-container">
+      <div class="header">
+      <h1 >Jana's Webpage</h1>
+      {% include navigation.html %}
+      </div>
+      <div class="content">
+        {{ content }}
+      </div>
+      <div class="footer">
+        <p>Version: {{site.data.version.version}} - {{ site.data.version.date | date_to_string }}</p>
+    <!-- <p>Copyright © {{ site.time | date: '%Y' }} Jana Nica</p> -->  
+      </div>
     </div>
   </body>
 </html>

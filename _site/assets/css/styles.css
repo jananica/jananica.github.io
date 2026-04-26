@@ -46,8 +46,8 @@ h4 {
   height: 20px;
   transition: height 2s;
   -webkit-transition: height 2s;
-  text-align: left;
   overflow: hidden;
+  margin-top: 5px;
 }
 .navigation .grow hr {
   margin-top: 2px;
@@ -81,11 +81,15 @@ h4 {
   z-index: 289;
   display: block;
 }
+.navigation .grow:hover ul li {
+  margin-top: 10px;
+  margin-left: -10px;
+}
 
 .image-preview {
-  width: 200px;
-  float: right;
-  margin: 0px 20px 20px 20px;
+  max-width: 25%;
+  float: inline-end;
+  margin: 0px 20px 0px 20px;
   break-after: always;
 }
 
@@ -112,11 +116,85 @@ div.item {
 #nav-rectangle {
   background-color: #f0f0f0;
   width: 100%;
-  height: 20px;
-  text-align: right;
+  height: 30px;
   display: flex;
   gap: 20px;
+  padding: 0px;
+}
+
+@media only screen and (max-width: 916px) {
+  #nav-rectangle {
+    display: block;
+    padding: 20px;
+    height: auto;
+  }
+  .navigation {
+    display: block;
+    text-align: left;
+    padding: 10px;
+    color: #2C2C2C;
+  }
+  .navigation .grow {
+    height: auto;
+    overflow: hidden;
+    z-index: 289;
+  }
+  .navigation .grow a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    display: inline;
+  }
+  .navigation .grow ul {
+    margin: 0px 0 0 0px;
+    padding: 0px 0 0 0px;
+    list-style: none;
+    opacity: 100%;
+    width: auto;
+    visibility: collapse;
+    height: 0px;
+  }
+  .navigation .grow .subitem {
+    padding: 10px 10px 10px 10px;
+    white-space: nowrap;
+    font-weight: lighter;
+    background-color: #f0f0f0;
+  }
+  .navigation .grow .current {
+    color: #9C59D1;
+  }
+  .navigation .grow:hover ul li {
+    height: 0px;
+    margin: 0px;
+    visibility: collapse;
+  }
+}
+.grid-container {
+  display: grid;
+  gap: 10px;
+  grid-template-areas: "header header" "content content" "footer footer";
+}
+
+.header {
+  grid-area: header;
   padding: 10px;
+}
+
+.content {
+  grid-area: content;
+  padding: 10px;
+}
+
+.footer {
+  grid-area: footer;
+  text-align: center;
+  padding: 10px;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 /*# sourceMappingURL=styles.css.map */

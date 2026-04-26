@@ -2,6 +2,6 @@
 layout: post
 
 author: Jana
-template-image: /assets/images/ViennaSeasons/24-3-3.jpg
+template-image: /assets/images/PT-StandingStillMoving/25-1-17.jpg
 blog-id: pt-standingstillmoving
 ---
