@@ -1,7 +1,42 @@
 <nav class="navigation">
+  <div id="nav-rectangle">
   {% for item in site.data.navigation %}
-    <a href="{{ item.link }}"{% if page.url == item.link %} class="current"{% endif %}>
-        {{ item.name | uppercase }}
+  <div class="grow">
+    <a href="{{ item.link }}"{% if page.nav-title == item.name %} class="current"{% endif %}>
+      {{ item.name | uppercase }}
+
+      {% if item.subcontent %}
+        
+        
+        {% for subitem in item.subcontent %}
+        
+          <ul>
+            <li>
+              <a class="subitem" href="{{ subitem.link }}">
+                {{subitem.name}}
+              </a>
+            </li>
+          
+        {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if item.site-subcollection %}
+        
+        {% for subitem in  site.[item.site-subcollection] %}
+          <ul>
+            <li>
+              <a class="subitem" href="{{ subitem.url }}">
+                {{subitem.title}}
+              </a>
+            </li>
+          </ul>
+        {% endfor %}
+      {% endif %}
+
     </a>
+    
+  </div>
   {% endfor %}
+  </div>
 </nav>

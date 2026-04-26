@@ -36,6 +36,7 @@ h4 {
 .helvetica {
   color: #2C2C2C;
   font-family: 'Helvetica', sans-serif;
+
 }
 
 
@@ -44,24 +45,62 @@ h4 {
   display: flex;
   gap: 20px;
   padding: 10px;
-  background-color: #f0f0f0;
+  
   color: #2C2C2C;
-  a {
-    text-decoration: none;
-    color: inherit;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-family: sans-serif;
+  
+  
+  .grow {
+    height: 20px;
+    transition: height 2s;
+    -webkit-transition: height 2s;
+    text-align: left;
+    overflow: hidden;
+    
+    hr {
+      margin-top: 2px;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-family: sans-serif;
+      
+    }
+    ul {
+        margin:10px 0 0 0px;
+        padding:0px 0 0 0;
+        list-style:none;
+        opacity: 100%;
+        width: 0;
+        
+    }
+    .subitem {
+      padding: 10px 10px 10px 10px;
+      white-space: nowrap;
+      font-weight: lighter;
+      background-color: #f0f0f0;
+      
+    }
+    .current {
+      color: #9C59D1;
+    }
+    
   }
-  .current {
-  color: #9C59D1;
+  .grow:hover {
+    height: auto;
+    overflow: visible;
+    z-index: 289;
+    display: block;
+    
   }
 }
 
 .image-preview {
   width: 200px;
-  float: inline-end;
+  float: right;
   margin: 0px 20px 20px 20px;
+  break-after: always;
 }
 
 .blog-images {
@@ -82,4 +121,15 @@ div.item {
 .caption {
     /* Make the caption a block so it occupies its own line. */
     display: block;
+}
+
+
+#nav-rectangle {
+  background-color: #f0f0f0;
+  width: 100%;
+  height: 20px;
+  text-align: right;
+  display: flex;
+  gap: 20px;
+  padding: 10px;
 }

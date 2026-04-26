@@ -1,4 +1,5 @@
 <!doctype html>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
 <html>
   <head>
     <meta charset="utf-8">
@@ -7,31 +8,157 @@
   </head>
   <body>
     <h1>Jana's Webpage</h1>
+    
     <nav class="navigation">
+  <div id="nav-rectangle">
   
+  <div class="grow">
     <a href="/">
-        Home
+      Home
+
+      
+
+      
+
     </a>
+    
+  </div>
   
+  <div class="grow">
     <a href="/public-transit.html">
-        Projects about public transit
+      Projects about public transit
+
+      
+
+      
+        
+        
+          <ul>
+            <li>
+              <a class="subitem" href="/public-transit-projects/departuremap.html">
+                Live map for Vienna's metro system
+              </a>
+            </li>
+          </ul>
+        
+          <ul>
+            <li>
+              <a class="subitem" href="/public-transit-projects/departuremonitor.html">
+                Departure Monitor for Vienna's metro
+              </a>
+            </li>
+          </ul>
+        
+      
+
     </a>
+    
+  </div>
   
+  <div class="grow">
     <a href="/photography.html">
-        Photography Blog
+      Photography Blog
+
+      
+
+      
+        
+        
+          <ul>
+            <li>
+              <a class="subitem" href="/2026/04/26/Public-transit,-a-contrast-between-stagnancy-and-movement.html">
+                Public Transit, a contrast between stagnancy and movement
+              </a>
+            </li>
+          </ul>
+        
+          <ul>
+            <li>
+              <a class="subitem" href="/2026/04/26/Odd-places-of-vienna.html">
+                Odd places of vienna
+              </a>
+            </li>
+          </ul>
+        
+          <ul>
+            <li>
+              <a class="subitem" href="/2026/01/09/Vienna-throughout-the-seasons.html">
+                Vienna throughout the seasons
+              </a>
+            </li>
+          </ul>
+        
+      
+
     </a>
+    
+  </div>
   
+  <div class="grow">
+    <a href="/math">
+      Math
+
+      
+
+      
+
+    </a>
+    
+  </div>
+  
+  <div class="grow">
     <a href="/other-projects.html">
-        Other Projects
+      Other Projects
+
+      
+        
+        
+        
+        
+          <ul>
+            <li>
+              <a class="subitem" href="/other-projects/PolyominoPuzzles.html">
+                Polyomino Puzzles
+              </a>
+            </li>
+          
+        
+        
+          <ul>
+            <li>
+              <a class="subitem" href="/">
+                Art with analog photos (TBA)
+              </a>
+            </li>
+          
+        
+        </ul>
+      
+
+      
+
     </a>
+    
+  </div>
   
+  <div class="grow">
     <a href="/about.html">
-        About
+      About
+
+      
+
+      
+
     </a>
+    
+  </div>
   
+  </div>
 </nav>
+    
     <div class="helvetica">
-      <h2>Departure Monitor for Vienna's metro - last updated: 04 Apr 2026</h2>
+      <h2>Departure Monitor for Vienna's metro - last updated: 08 Apr 2026</h2>
+<img src="/assets/images/DepartureMonitor/view-finished.jpg", width="100%">
 <div class="helvetica"><p>While working on a monitor displaying the Vienna metro system in real time I was asked by a friend of mine, if it would be possible to just track one part of a single line. 
 Some time has passed and I finally got the free time to work on that.
 The preliminary version is viewable on <a href="https://github.com/jananica/DepartureMonitorViennaPublicTransit"> GitHub</a>.</p>
@@ -45,8 +172,8 @@ The preliminary version is viewable on <a href="https://github.com/jananica/Depa
 │   ├── <span class="kd">xgcl_font</span>.py
 │   └── <span class="kd">mono_palette</span>.py
 ├── <span class="kd">lib</span>
-│   └── <span class="kd">requests</span>
-│   │   ├── __init__.mpy
+│   ├── <span class="kd">requests</span>
+│   │   └── __init__.mpy
 │   ├── <span class="kd">datetime</span>.mpy
 │   └── <span class="kd">urequests</span>.mpy
 ├── <span class="kd">fonts</span>
@@ -81,8 +208,11 @@ controlled by an SSD1322 driver.
 There was some sample code on the manufacturer’s site detailing the communication protocol with the displays.
 However I found the following <a href="https://github.com/rdagger/micropython-ssd1322/">micropython library</a>, which made the job much more easy.</p>
 
-<p>The displaying font (10x16 px) was created rather vibe-based to mimic in some sense the original font.
-It was created with the help of <a href="http://www.mikroe.com/"><strong>MikroElektronika GLCD Font Creator 1.2.0.0</strong></a>
+<p>The displaying font (10x16 px) was created rather vibe-based to mimic in some sense the original font. It contains the ASCII-characters (only those needed for display) from index 32 upto 220 (the Ü letter). A preview of the font:</p>
+
+<p><img src="/assets/images/DepartureMonitor/default_font_preview.png" alt="image scan of default_font" /></p>
+
+<p>The font was created with the help of <a href="http://www.mikroe.com/"><strong>MikroElektronika GLCD Font Creator 1.2.0.0</strong></a>
 Note: I had to run the program in <em>Windows XP compatibility mode</em>, otherwise it wouldn’t let me save the progress.
 Exporting was fairly straightforward: ‘Export for GLCD’ -&gt; select ‘mikroC’ and save.</p>
 

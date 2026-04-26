@@ -2,9 +2,18 @@
   link: /
 - name: Projects about public transit
   link: /public-transit.html
+  site-subcollection: public-transit-projects
 - name: Photography Blog
   link: /photography.html
+  site-subcollection: posts
+- name: Math
+  link: /math
 - name: Other Projects
   link: /other-projects.html
+  subcontent: 
+    - name: Polyomino Puzzles
+      link: /other-projects/PolyominoPuzzles.html
+    - name: Art with analog photos (TBA)
+      link: /
 - name: About
   link: /about.html

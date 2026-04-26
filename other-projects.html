@@ -1,4 +1,17 @@
 ---
 layout: default
-title: Blog
+title: Other Projects
+nav-title: Other Projects
 ---
+
+{% for nav in site.data.navigation%}
+    {% if nav.name=="Other Projects" %}
+        <ul>
+        {% for project in nav.subcontent %}
+            <li>
+                <a href="{{project.link}}">{{project.name}}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endfor %}

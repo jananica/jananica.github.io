@@ -1,4 +1,5 @@
 <!doctype html>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
 <html>
   <head>
     <meta charset="utf-8">
@@ -7,31 +8,157 @@
   </head>
   <body>
     <h1>Jana's Webpage</h1>
+    
     <nav class="navigation">
+  <div id="nav-rectangle">
   
+  <div class="grow">
     <a href="/">
-        Home
+      Home
+
+      
+
+      
+
     </a>
+    
+  </div>
   
+  <div class="grow">
     <a href="/public-transit.html">
-        Projects about public transit
+      Projects about public transit
+
+      
+
+      
+        
+        
+          <ul>
+            <li>
+              <a class="subitem" href="/public-transit-projects/departuremap.html">
+                Live map for Vienna's metro system
+              </a>
+            </li>
+          </ul>
+        
+          <ul>
+            <li>
+              <a class="subitem" href="/public-transit-projects/departuremonitor.html">
+                Departure Monitor for Vienna's metro
+              </a>
+            </li>
+          </ul>
+        
+      
+
     </a>
+    
+  </div>
   
+  <div class="grow">
     <a href="/photography.html">
-        Photography Blog
+      Photography Blog
+
+      
+
+      
+        
+        
+          <ul>
+            <li>
+              <a class="subitem" href="/2026/04/26/Public-transit,-a-contrast-between-stagnancy-and-movement.html">
+                Public Transit, a contrast between stagnancy and movement
+              </a>
+            </li>
+          </ul>
+        
+          <ul>
+            <li>
+              <a class="subitem" href="/2026/04/26/Odd-places-of-vienna.html">
+                Odd places of vienna
+              </a>
+            </li>
+          </ul>
+        
+          <ul>
+            <li>
+              <a class="subitem" href="/2026/01/09/Vienna-throughout-the-seasons.html">
+                Vienna throughout the seasons
+              </a>
+            </li>
+          </ul>
+        
+      
+
     </a>
+    
+  </div>
   
+  <div class="grow">
+    <a href="/math">
+      Math
+
+      
+
+      
+
+    </a>
+    
+  </div>
+  
+  <div class="grow">
     <a href="/other-projects.html">
-        Other Projects
+      Other Projects
+
+      
+        
+        
+        
+        
+          <ul>
+            <li>
+              <a class="subitem" href="/other-projects/PolyominoPuzzles.html">
+                Polyomino Puzzles
+              </a>
+            </li>
+          
+        
+        
+          <ul>
+            <li>
+              <a class="subitem" href="/">
+                Art with analog photos (TBA)
+              </a>
+            </li>
+          
+        
+        </ul>
+      
+
+      
+
     </a>
+    
+  </div>
   
+  <div class="grow">
     <a href="/about.html">
-        About
+      About
+
+      
+
+      
+
     </a>
+    
+  </div>
   
+  </div>
 </nav>
+    
     <div class="helvetica">
       <h2>Live map for Vienna's metro system - last updated: 04 Apr 2026</h2>
+<img src="/assets/images/DepartureMap/title-image.png", width="100%">
 <div class="helvetica"><h3>How this project came to life</h3>
 <p>
     Sometime in July 2024 I stumbled upon an instagram post made by 'designrulesco' (link to the original post is <a href="https://www.instagram.com/reel/C9foI0USKJb/">here</a>). 
@@ -43,6 +170,8 @@
 </p>
 <h3>Brief overview</h3>
 <p>The aim of this project is to build a live map of the full vienna metro system displaying each trains approximate position using a Raspberry Pi. For this on each line the next departures of trains from specified stations is requested, interpolated for all stations, and stored. From this data the state of LEDs (one LED per station and direction) on each line is computed every second. The LEDs are powered via three 16-bit serially connected LED sink drivers and P-channel mosfet transistors, allowing for multiplexing each line and therefore minimizing the number of GPIO pins needed.</p>
+
+<p><img src="/assets/images/DepartureMap/demo-night.png" alt="nightly-demo" /></p>
 
 <h3>Constraints and compromises</h3>
 <p>

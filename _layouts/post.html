@@ -5,8 +5,7 @@ layout: default
 <div class="helvetica">
 <p>posted on {{ page.date | date_to_string }} - by {{ page.author }}</p>
 
-
-    {% for image in site.data.blog.vienna %}
+    {% for image in site.data.blog.[page.blog-id] %}
     
         <div class="item">
             <img src="{{image.link}}" style="min-width: 200px;max-width: 400px;"/>

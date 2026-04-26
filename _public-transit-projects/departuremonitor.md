@@ -5,6 +5,7 @@ author: Jana
 title: Departure Monitor for Vienna's metro
 last_updated: 2022-04-14 
 template-image: /assets/images/DepartureMonitor/view-finished.jpg
+title-image: /assets/images/DepartureMonitor/view-finished.jpg
 ---
 
 While working on a monitor displaying the Vienna metro system in real time I was asked by a friend of mine, if it would be possible to just track one part of a single line. 
@@ -21,8 +22,8 @@ Replicate the look of the monitors in Vienna's metro and show live departure tim
 │   ├── xgcl_font.py
 │   └── mono_palette.py
 ├── lib
-│   └── requests
-│   │   ├── __init__.mpy
+│   ├── requests
+│   │   └── __init__.mpy
 │   ├── datetime.mpy
 │   └── urequests.mpy
 ├── fonts
@@ -56,8 +57,11 @@ controlled by an SSD1322 driver.
 There was some sample code on the manufacturer's site detailing the communication protocol with the displays.
 However I found the following [micropython library](https://github.com/rdagger/micropython-ssd1322/), which made the job much more easy.
 
-The displaying font (10x16 px) was created rather vibe-based to mimic in some sense the original font.
-It was created with the help of [**MikroElektronika GLCD Font Creator 1.2.0.0**](http://www.mikroe.com/)
+The displaying font (10x16 px) was created rather vibe-based to mimic in some sense the original font. It contains the ASCII-characters (only those needed for display) from index 32 upto 220 (the Ü letter). A preview of the font:
+
+![image scan of default_font](/assets/images/DepartureMonitor/default_font_preview.png)
+
+The font was created with the help of [**MikroElektronika GLCD Font Creator 1.2.0.0**](http://www.mikroe.com/)
 Note: I had to run the program in _Windows XP compatibility mode_, otherwise it wouldn't let me save the progress.
 Exporting was fairly straightforward: 'Export for GLCD' -> select 'mikroC' and save.
 

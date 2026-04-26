@@ -1,7 +1,12 @@
 ---
 layout: default
 title: About
+nav-title: About
 ---
-# About page
+## About me
 
-This page tells you a little bit about me.
+(TBD)
+
+You can contact me at: jananica@protonmail.com
+- If you have a favorite spot in vienna with 
+a good overlook over the city or an interesting motive you can also send it to me.

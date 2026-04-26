@@ -3,7 +3,8 @@ layout: project
 
 author: Jana
 title: Live map for Vienna's metro system
-template-image: /assets/images/DepartureMonitor/view-finished.jpg
+template-image: /assets/images/DepartureMap/demo-night.png
+title-image: /assets/images/DepartureMap/title-image.png
 ---
 
 
@@ -18,6 +19,8 @@ template-image: /assets/images/DepartureMonitor/view-finished.jpg
 </p>
 <h3>Brief overview</h3>
 <p>The aim of this project is to build a live map of the full vienna metro system displaying each trains approximate position using a Raspberry Pi. For this on each line the next departures of trains from specified stations is requested, interpolated for all stations, and stored. From this data the state of LEDs (one LED per station and direction) on each line is computed every second. The LEDs are powered via three 16-bit serially connected LED sink drivers and P-channel mosfet transistors, allowing for multiplexing each line and therefore minimizing the number of GPIO pins needed.</p>
+
+![nightly-demo](/assets/images/DepartureMap/demo-night.png)
 
 <h3>Constraints and compromises</h3>
 <p>
