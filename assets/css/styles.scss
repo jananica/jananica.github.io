@@ -43,9 +43,7 @@ h4 {
 .navigation {
   text-align: right;
   display: flex;
-  gap: 20px;
-  padding: 10px;
-  
+  gap: 20px;  
   color: #2C2C2C;
   
   
@@ -70,7 +68,7 @@ h4 {
     }
     ul {
         margin:10px 0 0 0px;
-        padding:0px 0 0 0;
+        padding:0 0 0 0;
         list-style:none;
         opacity: 100%;
         width: 0;
@@ -93,6 +91,8 @@ h4 {
     overflow: visible;
     z-index: 289;
     display: block;
+    transition: height 2s;
+    -webkit-transition: height 2s;
     ul li {
         margin-top:10px;
         margin-left: -10px;
@@ -137,11 +137,50 @@ div.item {
   padding: 0px;
 }
 
+
+
+.grid-container {
+  display: grid;
+  gap: 10px;
+  grid-template-areas:
+  'header header'
+  'content content'
+  'footer footer';
+}
+.header {
+   grid-area: header;  
+}
+
+.content { 
+  grid-area: content; 
+}
+.footer { 
+  grid-area: footer; 
+  text-align: center; 
+}
+* {
+  box-sizing: border-box;
+}
+.main-gif {
+  height: 80px;
+  margin-left: 20px; 
+  margin-right: 20px;
+  margin-bottom: 5px;
+}
+
 @media only screen and (max-width: 916px) {
+
+  .main-gif {
+    height:90px;
+    margin-right: 0px;
+    margin-left:10px;
+    margin-top: 10px;
+  }
   #nav-rectangle {
     display: block;
     padding: 20px;
     height: auto;
+    width: 100%;
 
   }
   .navigation {
@@ -154,38 +193,20 @@ div.item {
     .grow {
       height: auto;
       overflow: hidden;
-      z-index: 289;
-      
       
       a {
-        text-decoration: none;
-        color: inherit;
-        font-weight: bold;
-        text-transform: uppercase;
-        font-family: sans-serif;
         display: inline;
         
       }
       ul {
           margin:0px 0 0 0px;
-          padding:0px 0 0 0px;
-          list-style:none;
-          opacity: 100%;
-          width: auto;
           visibility: collapse;
           height: 0px;
           
       }
       
       .subitem {
-        padding: 10px 10px 10px 10px;
-        white-space: nowrap;
-        font-weight: lighter;
-        background-color: #f0f0f0;
-        
-      }
-      .current {
-        color: #9C59D1;
+        white-space:normal;        
       }
       
     }
@@ -212,30 +233,4 @@ div.item {
     }
     
   }
-}
-
-.grid-container {
-  display: grid;
-  gap: 10px;
-  grid-template-areas:
-  'header header'
-  'content content'
-  'footer footer';
-  
-  
-  
-}
-.header {
-   grid-area: header;  
-   padding: 10px; }
-
-.content { 
-  grid-area: content; 
-  padding: 10px; }
-.footer { grid-area: footer; 
-
-  text-align: center; 
-  padding: 10px; }
-* {
-  box-sizing: border-box;
 }
