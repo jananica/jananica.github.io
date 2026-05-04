@@ -1,0 +1,80 @@
+# - topic:
+#   sites:
+#   - site: 
+#     - name:
+#     - url:
+#     - description:
+- topic: Public Transit
+  sites:
+  - site:
+      name: ÖBB Departure Monitor
+      url: https://meine.oebb.at/webdisplay/?stationId=8101003&contentType=departure&staticLayout=true&page=1&offset=0&ignoreIncident=false&expandAll=true
+      description: "\n\t- ``stationId``: see below
+                    \n\t- ``contentType``: either departure, arrival or formation
+                    \n\t- ``staticLayout``: default: ``true``, if false, a dropdown option for each train appears with more info. Additionally you can set ``expandAll=true`` to expand all.
+                    \n\t- ``page``: supposedly adds control for more than one monitor
+                    \n\t- ``offset``: 
+                    \n\t- ``ignoreIncident``: if ``true``, no below info will appear."
+  - site:
+      name: Useful repository for stationId values in 'ÖBB Departure Monitor'
+      url: https://github.com/trainline-eu/stations
+      description: This repository contains the information 'Trainline EU' 
+        uses to identify stations across the diverse systems of the train operators.
+        The entries in column UIC (7-digit number starting with 81) can be used as value for 'stationId' in above monitor.
+  - site:
+      name: Outdated - Wikipedia site for stationId in Departure Monitor
+      url: https://de.wikipedia.org/wiki/Liste_der_Eisenbahnh%C3%B6fe_und_-haltestellen_in_%C3%96sterreich#W
+      description: Previously it was possible to use entries in 'Abk.' (the ÖBB call them 'BST Codes') in the table as values for 'stationId' in above departure monitor. 
+        While some data is still shown, it seams the monitor will no longer show live information (2026-05-01).
+        What seems to be a requirement now is to use the 'UIC station code', see above.
+  - site:
+      name: Wiener Linien OGD documentation
+      url: https://www.wienerlinien.at/ogd_realtime/doku/
+      description:
+  - site:
+      name: Wiener Linien OGD documentation
+      url: https://www.wienerlinien.at/ogd_realtime/doku/
+    description:
+- topic: Analog Photography
+  sites:
+  - site:
+      name: Film database
+      url: https://thebigfilmdatabase.merinorus.com/
+      description: Search by name, code or DX number. Find when a film is discontinued, who made it, who rebrands it. Have fun! 
+  - site:
+      name: Wiener Linien OGD documentation
+      url: https://www.wienerlinien.at/ogd_realtime/doku/
+      description:
+  - site:
+      name: Wiener Linien OGD documentation
+      url: https://www.wienerlinien.at/ogd_realtime/doku/
+      description:
+- topic: Math
+  sites:
+  - site:
+      name: Simple-Fold and Cut Font
+      url: https://erikdemaine.org/fonts/simplefoldcut/?text
+      description: 
+  - site:
+      name: Wiener Linien OGD documentation
+      url: https://www.wienerlinien.at/ogd_realtime/doku/
+      description:
+  - site:
+      name: Wiener Linien OGD documentation
+      url: https://www.wienerlinien.at/ogd_realtime/doku/
+      description:
+      
+- topic: Programming
+  sites:
+  - site:
+      name: Monochrome bitmap image format explaination
+      url: http://www.fastgraph.com/help/monochrome_bitmaps.html
+      description: 
+  - site:
+      name: Wiener Linien OGD documentation
+      url: https://www.wienerlinien.at/ogd_realtime/doku/
+      description:
+  - site:
+      name: Wiener Linien OGD documentation
+      url: https://www.wienerlinien.at/ogd_realtime/doku/
+      description:
