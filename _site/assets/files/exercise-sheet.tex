@@ -1,0 +1,83 @@
+\documentclass{article}
+
+\usepackage{amsthm,amssymb}
+\usepackage{mathtools}%automatically loads amsmath and is required for \defeq macro
+%\usepackage{amsmath} %already loaded by mathtools
+
+\usepackage{graphicx}
+\usepackage{float}%for better floating point-positioning of an image
+\usepackage[inline]{enumitem}%for "enumerate*" (i.e. horizontal lists) and for indentation in itemized lists
+\renewcommand{\labelenumi}{\textbf{(\alph{enumi})}}
+
+\usepackage[colorlinks=true, linkcolor=black]{hyperref}
+\usepackage{tcolorbox}%required for \definecolor
+\definecolor{instructions}{HTML}{666699}
+\usepackage{fancyhdr}
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{.}
+\usepackage{lastpage}
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    left=20mm,
+    right=20mm,
+    bottom=25mm,
+    top=25mm
+}
+
+\newcommand{\exercise}[3]{
+    \vspace{1em}\noindent\large\fontfamily{phv}\selectfont\scshape\newline
+    \textbf{Exercise #1:  }
+    \normalfont\normalsize
+        \color{instructions}
+            ``#2"\normalcolor
+    
+    \noindent\textbf{solution: }#3
+}
+
+\newcommand*{\claimproofname}{proof of claim.}
+\newenvironment{claimproof}[1][\claimproofname]{
+    \begin{proof}[#1]\renewcommand*{\qedsymbol}{\(\boxtimes\)}}{\end{proof}
+}
+
+    
+\newcommand{\defeq}{\vcentcolon=}% :=
+\newcommand{\eqdef}{=\vcentcolon}% =:
+\newcommand{\defeqiv}{\vcentcolon\Leftrightarrow }% :<=>
+\newcommand{\eqivdef}{\Leftrightarrow\vcentcolon}% <=>:
+
+\newcommand{\vleadsto}{\rotatebox[origin=c]{-90}{$\leadsto$}}% vertical leads to
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\symdiff}{\: \triangle \:}
+\newcommand{\notll}{\hskip 0.4mm \not \hskip -0.4mm \ll}
+\newcommand{\sledom}{\Relbar\joinrel\mathrel{|}}
+
+\def\dotminus{\mathbin{\ooalign{\hss\raise1ex\hbox{.}\hss\cr
+  \mathsurround=0pt$-$}}}
+
+\DeclareMathOperator{\LL}{\mathcal{L}}
+\DeclareMathOperator{\MM}{\mathcal{M}}
+\DeclareMathOperator{\KK}{\mathcal{K}}
+\DeclareMathOperator{\Th}{Th}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\Conseq}{Conseq}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\today}
+\fancyhead[C]{Lecture name - Problem set \#42}
+\fancyhead[R]{Name \uppercase{surname}}
+\fancyfoot[R]{page \thepage \hspace{3pt}of \pageref{LastPage}}
+%\fancyfoot[L]{Battery not included}
+\exercise{42}{
+    Problem.
+}{
+    Solution.
+}
+\end{document}
+

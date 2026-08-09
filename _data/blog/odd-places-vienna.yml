@@ -1,3 +1,7 @@
-- name: first
+- name: L
   link: /assets/images/OddPlacesVienna/24-3-33.jpg
-  date: 
+  date: 2024
+
+- name: R
+  link: /assets/images/OddPlacesVienna/2026-2-trichrome-4to6-normal.jpg
+  date: 2026-04

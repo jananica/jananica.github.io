@@ -18,3 +18,11 @@ Here you can view my listing of $$\LaTeX$$-snippets I found as solutions for pro
     <a href="assets/files/Template.pdf" download="LaTeX-Snippets">LaTeX-Snippets.pdf</a>
 
 
+A template for exercise-sheets I use: <a href="assets/files/exercise-sheet.tex" download="exercise-sheet.tex">exercise-sheet.tex</a>
+
+Preview:
+
+<embed src="assets/files/exercise-sheet.pdf" width="400px" height="600px" />
+
+
+

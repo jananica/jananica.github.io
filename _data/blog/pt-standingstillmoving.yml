@@ -1,7 +1,30 @@
+- name: first
+  link: /assets/images/PT-StandingStillMoving/2026-2-trichrome-image_35_30_34-layers_aligned-cropped.jpg
+  date: 2026-08
+
+- name: first
+  link: /assets/images/PT-StandingStillMoving/2026-2-trichrome-23to25-normal-layers_aligned-cropped.jpg
+  date: 2026-07
+
+- name: first
+  link: /assets/images/PT-StandingStillMoving/2026-2-trichrome-20to22-funky-layers_aligned-cropped.jpg
+  date: 2026-07
+
+- name: first
+  link: /assets/images/PT-StandingStillMoving/2026-2-trichrome-26to28-funky2-layers_aligned-cropped.jpg
+  date: 2026-07
+
+- name: first
+  link: /assets/images/PT-StandingStillMoving/2026-2-trichrome-10to12-normal-layers_aligned-cropped.jpg
+  date: 2026-05
+
+- name: first
+  link: /assets/images/PT-StandingStillMoving/2026-2-trichrome-13to15-normal-layers_aligned-cropped.jpg
+  date: 2026-05
 
 - name: first
   link: /assets/images/PT-StandingStillMoving/25-1-17.jpg
-  date: 2025-08-5
+  date: 2025-08
 
 - name: second
   link: /assets/images/PT-StandingStillMoving/25-1-32.jpg

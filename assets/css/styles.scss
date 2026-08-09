@@ -41,6 +41,8 @@ h4 {
 
 
 .navigation {
+  width: 100%;
+  grid-area: navigation;
   text-align: right;
   display: flex;
   gap: 20px;  
@@ -122,10 +124,6 @@ div.item {
   margin: 20px 20px 0px 0px;
 }
 
-.caption {
-    /* Make the caption a block so it occupies its own line. */
-    display: block;
-}
 
 
 #nav-rectangle {
@@ -141,15 +139,20 @@ div.item {
 
 .grid-container {
   display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: max-content 1fr;
   gap: 10px;
   grid-template-areas:
-  'header header'
+  'title main_gif'
+  'navigation navigation'
   'content content'
   'footer footer';
 }
-.header {
-   grid-area: header;  
+.title {
+  grid-area: title;
+  width: fit-content;
 }
+
 
 .content { 
   grid-area: content; 
@@ -161,22 +164,33 @@ div.item {
   right: 0;
   grid-area: footer; 
   text-align: center; 
+  background-color: #f0f0f0;
 }
 * {
   box-sizing: border-box;
 }
+
+
+
+
+
 .main-gif {
-  height: 80px;
-  margin-left: 20px; 
+  height: 100px;
+  max-width: 100%;
+  
   margin-right: 20px;
   margin-bottom: 5px;
+  object-fit: cover;
+  object-position: 0px 0px;
+  grid-area: main_gif;
 }
 
 @media only screen and (max-width: 916px) {
 
   .main-gif {
-    height:90px;
-    margin-right: 0px;
+    height:40px;
+    max-width: 100%;
+    margin-right: 30px;
     margin-left:10px;
     margin-top: 10px;
   }
